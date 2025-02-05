@@ -1,0 +1,27 @@
+{
+    "name": "ampersands-web",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andr-ew/cip-web.git"
+    },
+    "author": "acs",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/andr-ew/cip-web/issues"
+    },
+    "homepage": "https://github.com/andr-ew/cip-web#readme",
+    "devDependencies": {
+        "prettier": "3.2.5",
+        "prettier-plugin-go-template": "^0.0.15",
+        "scss-reset": "^1.4.2"
+    },
+    "dependencies": {
+        "photoswipe": "^5.4.3"
+    }
+}

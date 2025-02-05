@@ -1,0 +1,28 @@
+baseURL: 'https://time-find.ing'
+languageCode: 'en-us'
+title: 'time-find.ing'
+timeout: '300s'
+module:
+    imports:
+        path: 'github.com/future-wd/hugo-responsive-images'
+params:
+    image:
+        render_hook: True
+        widths: [600, 720, 900, 1300, 1440]
+        sizes: '(max-width: 1050px) 100vw, 600px'
+        formats: [webp, original]
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+menus:
+    main:
+        - name: List
+          pageRef: /
+          weight: 10
+        - name: About
+          pageRef: /about
+          weight: 20
+        - name: rss
+          pageRef: /rss
+          weight: 30

@@ -1,0 +1,212 @@
+@import 'node_modules/scss-reset/_reset';
+@import 'assets/style/_variables';
+@import 'node_modules/photoswipe/dist/photoswipe';
+
+* {
+    scroll-behavior: smooth;
+}
+
+.bodyBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    opacity: 0.4;
+
+    background-size: 85%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+body {
+    margin: 0;
+
+    background-color: $color-background;
+}
+
+main {
+    z-index: 1;
+    position: relative;
+
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 100px;
+
+    padding-top: $margin-top-desktop;
+
+    @include mobile {
+        margin: 0 $home-margin-x-mobile;
+    }
+
+    .content {
+        @include content;
+    }
+}
+
+* {
+    text-transform: lowercase;
+    text-decoration-thickness: 1.5px;
+}
+
+h1 {
+    @include sans;
+}
+
+h2,
+h3 {
+    @include monospace;
+}
+
+p,
+li {
+    @include sans;
+
+    // text-underline-offset: 2px;
+    // a:any-link {
+    // }
+}
+
+h1,
+h3,
+p,
+picture {
+    margin-bottom: 1lh;
+}
+
+a:any-link {
+    color: inherit;
+
+    @include sans;
+
+    text-decoration-line: underline;
+    // text-underline-offset: 2px;
+}
+
+em {
+    @include monospace;
+
+    &::before {
+        content: '[';
+    }
+    &::after {
+        content: ']';
+    }
+}
+
+//white tint on all pictures
+picture {
+    position: relative;
+    display: inline-block;
+
+    filter: contrast(90%) saturate(110%);
+    // filter: saturate(110%);
+
+    img {
+        width: 100%;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.mainNav {
+    position: fixed;
+    z-index: 10;
+
+    ul {
+        display: flex;
+
+        @include desktop {
+            gap: 4ch;
+        }
+        @include mobile {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    @include desktop {
+        bottom: calc(100vh - #{$margin-top-desktop});
+        left: $margin-top-desktop;
+    }
+    @include mobile {
+        left: 0;
+        top: 0;
+        right: 0;
+
+        padding: $home-margin-x-mobile;
+        background-color: $color-background;
+    }
+
+    a:any-link {
+        @include monospace;
+
+        &:not(.active) {
+            text-decoration-line: none;
+
+            &:hover {
+                text-decoration-line: underline;
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    * {
+        @include monospace;
+    }
+
+    > li {
+        &.newer {
+            &::before {
+                content: '[← ';
+            }
+        }
+        &.older {
+            &::after {
+                content: ' →]';
+            }
+        }
+    }
+    li {
+        &::before {
+            content: '[';
+        }
+        &::after {
+            content: ']';
+        }
+
+        a {
+            @include monospace;
+            text-decoration-line: none;
+        }
+
+        &.disabled {
+            // color: rgb(80, 80, 80);
+            opacity: 0.5;
+        }
+
+        &:not(.disabled) a:hover {
+            text-decoration-line: underline;
+        }
+
+        &.active a {
+            text-decoration-line: underline;
+        }
+    }
+
+    .page-numbers {
+        display: flex;
+        gap: 10px;
+    }
+}

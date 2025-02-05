@@ -14,3 +14,22 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# ignore binary content files anywhere
+*.wav
+*.WAV
+*.mp3
+*.MP3
+*.mov
+*.MOV
+*.mp4
+*.MP4
+*.HEIC
+*.png
+*.PNG
+*.jpeg
+*.JPEG
+*.jpg
+*.JPG
+*.gif
+*.GIF

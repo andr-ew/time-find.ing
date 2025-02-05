@@ -1,0 +1,65 @@
+$margin-top-desktop: 50px;
+$margin-top-mobile: $margin-top-desktop;
+
+$home-margin-x-mobile: 10px;
+
+$color-background: #f8f8f8;
+
+@font-face {
+    font-family: 'Inconsolata';
+    src:
+        url('/fonts/Inconsolata-Regular.woff2') format('woff2'),
+        url('/fonts/Inconsolata-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src:
+        url('/fonts/PPNeueMontreal-Regular.woff2') format('woff2'),
+        url('/fonts/PPNeueMontreal-Regular.ttf') format('truetype');
+}
+
+@mixin monospace {
+    font-family: 'Inconsolata', monospace;
+    font-size: 19px;
+}
+
+@mixin sans {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 18px;
+}
+
+@mixin mobile {
+    @media (max-width: 1050px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1050px) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @include mobile {
+        display: none !important;
+    }
+}
+
+@mixin mobile-only {
+    @include desktop {
+        display: none !important;
+    }
+}
+
+@mixin content {
+    ul {
+        list-style-type: disc;
+
+        li {
+            // padding-left: 30px;
+            margin-left: 30px;
+        }
+    }
+}

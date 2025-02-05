@@ -1,0 +1,16 @@
+@import 'assets/style/_variables';
+
+.postSection {
+    margin-bottom: 50px;
+}
+
+.paginationNav {
+    margin-top: $margin-top-desktop;
+
+    &:not(.mobile) {
+        @include desktop-only;
+    }
+    &.mobile {
+        @include mobile-only;
+    }
+}
