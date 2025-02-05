@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>time-find.ing</title>
+        {{ partial "stylesheet" (dict "href" "style/global.scss") }}
+        {{ partial "script" (dict "src" "js/photoswipe.js") }}
+    </head>
+    <body>
+        <header>
+            <nav class="mainNav">
+                <ul>
+                    {{- $currentPage := . -}}
+                    {{- range site.Menus.main -}}
+                        <em>
+                            {{- if $currentPage.IsMenuCurrent .Menu . -}}
+                                <a
+                                    class="active"
+                                    aria-current="page"
+                                    href="{{ .URL }}"
+                                    >{{ .Name }}</a
+                                >
+                            {{- else -}}
+                                <a href="{{ .URL }}">{{- .Name -}}</a>
+                            {{- end -}}
+                        </em>
+                    {{- end -}}
+                </ul>
+            </nav>
+        </header>
+        <main class="main" id="ps-gallery--home">
+            {{ block "body" . }}
+            {{ end }}
+        </main>
+    </body>
+</html>

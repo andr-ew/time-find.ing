@@ -1,0 +1,2 @@
+{{ $built := resources.Get .src | js.Build }}
+<script src="{{ $built.RelPermalink }}" defer></script>

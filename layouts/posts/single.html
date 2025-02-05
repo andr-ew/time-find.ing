@@ -1,0 +1,4 @@
+{{ define "body" }}
+    {{ partial "stylesheet" (dict "href" "style/partials/post.scss") }}
+    {{ partial "post" (dict "ctx" . "page" .) }}
+{{ end }}

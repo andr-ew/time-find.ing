@@ -1,0 +1,8 @@
+{{ with resources.Get .href | toCSS (dict "includePaths" (slice "node_modules" "assets")) | minify | fingerprint }}
+    <link
+        rel="stylesheet"
+        href="{{ .RelPermalink }}"
+        integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous"
+    />
+{{ end }}

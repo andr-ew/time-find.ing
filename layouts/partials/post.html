@@ -1,0 +1,42 @@
+<div class="post twoColumn">
+    <div>
+        {{ range .page.Resources.ByType "image" }}
+            <div class="square">
+                <div>
+                    <a
+                        class="artLink"
+                        href="{{ .RelPermalink }}"
+                        data-pswp-width="{{ .Width }}"
+                        data-pswp-height="{{ .Height }}"
+                        data-cropped="true"
+                        target="_blank"
+                    >
+                        {{ partial "picture"  (dict
+                            "ctx" $.page
+                            "src" (strings.Replace .RelPermalink $.page.RelPermalink "")
+                            "sizes" "(max-width: 1050px) 100vw, 300px"
+                            "widths" (slice 400 800 1200)
+                            "alt" (replace (strings.TrimSuffix (path.Ext .Title) .Title) "-" " ")
+                            )
+                        }}
+                    </a>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+    <div>
+        <h2>
+            <em
+                ><a href="{{ .page.RelPermalink }}"
+                    >{{ .page.LinkTitle }}</a
+                ></em
+            >
+        </h2>
+        <h3>{{ .page.Description }}</h3>
+        {{ range .page.Resources.ByType "audio" }}
+
+            <audio controls src="{{ .RelPermalink }}"></audio>
+        {{ end }}
+        <p>{{ .page.Content }}</p>
+    </div>
+</div>

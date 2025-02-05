@@ -1,0 +1,28 @@
+{{ define "body" }}
+    {{ partial "stylesheet" (dict "href" "style/home.scss") }}
+    {{ $pages := where site.RegularPages "Type" "posts" }}
+    {{ $paginator := .Paginate $pages.ByTitle.Reverse 10 }}
+
+    {{ partial "stylesheet" (dict "href" "style/partials/post.scss") }}
+    {{ range $paginator.Pages }}
+        <section class="postSection">
+            {{ partial "post" (dict "ctx" $ "page" .) }}
+        </section>
+    {{ end }}
+
+
+    <nav class="paginationNav">
+        {{ partial "pagination" . }}
+    </nav>
+    <nav class="paginationNav mobile">
+        {{ partial "pagination" (dict "page" . "format" "terse") }}
+    </nav>
+
+    <div
+        class="bodyBackground"
+        style="background-image: url('/images/bg.png'); transform: rotate({{- (
+            mul -10 .Paginator.PageNumber
+            )
+        -}}deg)"
+    ></div>
+{{ end }}
