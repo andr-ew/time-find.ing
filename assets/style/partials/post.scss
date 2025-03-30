@@ -18,7 +18,7 @@
         grid-template-columns: 300px 1fr;
     }
 
-    div {
+    .postContent {
         @include content;
     }
 }

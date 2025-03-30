@@ -18,6 +18,11 @@ $color-background: #f8f8f8;
         url('/fonts/PPNeueMontreal-Regular.woff2') format('woff2'),
         url('/fonts/PPNeueMontreal-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Neue Montreal';
+    font-style: italic;
+    src: url('/fonts/PPNeueMontreal-Italic.otf') format('truetype');
+}
 
 @mixin monospace {
     font-family: 'Inconsolata', monospace;
@@ -60,6 +65,18 @@ $color-background: #f8f8f8;
         li {
             // padding-left: 30px;
             margin-left: 30px;
+        }
+    }
+
+    em {
+        @include sans;
+        font-style: italic;
+
+        &::before {
+            content: '';
+        }
+        &::after {
+            content: '';
         }
     }
 }
